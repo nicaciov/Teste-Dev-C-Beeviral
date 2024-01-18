@@ -1,0 +1,145 @@
+﻿@model Pessoa
+
+@{
+    ViewData["Title"] = "Lista Pessoa";
+}
+
+<div class="text-left">
+
+    <h1>Lista Pessoa</h1>
+    <p>Escreva um programa C# que use a classe Pessoa criada na pergunta anterior para criar uma lista de pessoas e, em seguida, filtre essa lista para conter apenas pessoas com idade superior a 30 anos. Em seguida, imprima os nomes das pessoas com idade superior a 30 anos.</p>
+
+    <div class="card">
+        <div class="card-header row align-items-center">
+
+            <div class="col-4">
+                <h4 class="card-header-title">
+                    Lista de Pessoas
+                </h4>
+            </div>
+
+            <div class="col-2">
+                <span>
+                    @ViewBag.listaPessoas.Count itens
+                </span>
+            </div>
+
+            <form method="post" asp-controller="Pessoa" asp-action="FiltroPessoa" class="col-6">
+                <div class="row align-items-center">
+                    <div class="col-10">
+                        <select id="filtroSelect" name="filtroSelect" class="form-control">
+                            <option value="30">Acima de 30</option>
+                            <option value="20">Acima de 20</option>
+                            <option value="10">Acima de 10</option>
+                            <option value="0">Sem filtro</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+            <div class="card-body">
+
+                @if (ViewBag.listaPessoas != null)
+                {
+                    @if (ViewBag.listaPessoas.Count != 0)
+                    {
+                        <table class="table" tabindex="0">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <a href="#" class="text-body-secondary list-sort" data-sort="nome">
+                                            Nome
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="#" class="text-body-secondary list-sort" data-sort="idade">
+                                            Idade
+                                        </a>
+                                    </th>
+                                    <th>
+                                        <a href="#" class="text-body-secondary list-sort" data-sort="email">
+                                            E-mail
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="list">
+                                @foreach (var item in ViewBag.listaPessoas)
+                                {
+                                    <tr>
+                                        <td>@item.Nome</td>
+                                        <td>@item.Idade</td>
+                                        <td>@item.Email</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <div class="row">
+                            <div class="col-12">
+                                <br />
+                                <p class="text-center">Não existem dados a serem exibidos.</p>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-12">
+                            <br />
+                            <p class="text-center">Não existem dados a serem exibidos.</p>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="card-footer">
+                <div class="row align-items-center">
+
+                    <form method="post" asp-controller="Pessoa" asp-action="SalvarPessoa">
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" asp-for="Nome" name="Nome" required class="form-control" placeholder="Nome" />
+                                </div>
+                                <div class="col">
+                                    <input type="number" asp-for="Idade" name="Idade" min="0" max="100" required class="form-control" placeholder="Idade" />
+                                </div>
+                                <div class="col">
+                                    <input type="email" asp-for="Email" name="Email" required class="form-control" placeholder="E-mail" />
+                                </div>
+
+                                <div class="col-auto">
+                                    <button type="submit" class="btn btn-sm btn-primary">
+                                        Adicionar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('filtroSelect').addEventListener('change', function () {
+        // Obtém o formulário pelo ID
+        var formulario = document.getElementById('filtroForm');
+
+        // Submete o formulário
+        formulario.submit();
+    });
+</script>

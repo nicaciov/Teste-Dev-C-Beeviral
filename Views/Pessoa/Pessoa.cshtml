@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Objeto Pessoa";
+}
+
+<div class="text-left">
+
+    <h1>Modelagem Objeto Pessoa</h1>
+    <p>Crie uma classe chamada Pessoa em C# com as seguintes propriedades: Nome (string), Idade (int) e Email (string). Crie um construtor para a classe que aceite os valores dessas propriedades como argumentos.</p>
+
+    <pre>
+    <code>
+            namespace Teste_Dev_C__Beeviral.Models
+            {
+                public class Pessoa
+                {
+                    public string Nome { get; set; }
+                    public int Idade { get; set; }
+                    public string Email { get; set; }
+
+                    public Pessoa(string nome, int idade, string email)
+                    {
+                        Nome = nome;
+                        Idade = idade;
+                        Email = email;
+                    }
+                }
+            }
+        </code>
+    </pre>
+
+</div>

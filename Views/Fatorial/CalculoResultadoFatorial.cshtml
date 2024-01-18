@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Pergunta 1";
+}
+
+<h1>Calculadora Fatorial</h1>
+<p>Informe um número inteiro não negativo para o cálculo fatorial.</p>
+
+<form method="post" asp-controller="Fatorial" asp-action="CalculoResultadoFatorial">
+
+    <div class="form-group">
+        <label class="form-label">Número</label>
+        <input type="number" id="sNumero" name="sNumero" min="0" max="20" required class="form-control">
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Calcular</button>
+    </div>
+
+</form>
+
+<p class="text-center">@ViewBag.Mensagem</p>

@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Início";
+}
+
+<div class="text-left"> 
+
+    <h1>Teste para Desenvolvedor C#</h1>
+
+    <h2>Instruções:</h2>
+    <p>O candidato deve responder às perguntas utilizando a linguagem C# e o padrão MVC. Aplicação criada deve ser WEB.</p>
+
+    <h2>Pergunta 1:</h2>
+    <p>Escreva um programa em C# que calcule o fatorial de um número inteiro não negativo fornecido pelo usuário. O fatorial de um número N é o produto de todos os inteiros positivos de 1 a N.</p>
+
+    <h3>Requisitos:</h3>
+    <ol>
+        <li>Peça ao usuário para inserir um número inteiro não negativo.</li>
+        <li>Verifique se o número inserido é válido (ou seja, não negativo).</li>
+        <li>Calcule o fatorial do número inserido.</li>
+        <li>Exiba o resultado do cálculo do fatorial.</li>
+    </ol>
+
+    <p>Exemplo de saída:</p>
+    <pre>
+        Digite um número inteiro não negativo: 5
+        O fatorial de 5 é 120.
+    </pre>
+
+    <p>Aqui está um esqueleto de código em C# que você pode usar como ponto de partida:</p>
+    <pre>
+    <code>
+            using System;
+
+            class Program
+            {
+                static void Main()
+                {
+                    Console.Write("Digite um número inteiro não negativo: ");
+                    int numero = int.Parse(Console.ReadLine());
+
+                    if (numero < 0)
+                    {
+                        Console.WriteLine("O número deve ser não negativo.");
+                    }
+                    else
+                    {
+                        // Calcule o fatorial aqui e exiba o resultado.
+                        // Lembre-se de lidar com o caso especial do fatorial de 0.
+                    }
+                }
+            }
+        </code>
+    </pre>
+
+    <h2>Pergunta 2:</h2>
+    <p>Crie uma classe chamada Pessoa em C# com as seguintes propriedades: Nome (string), Idade (int) e Email (string). Crie um construtor para a classe que aceite os valores dessas propriedades como argumentos.</p>
+
+    <h2>Pergunta 3:</h2>
+    <p>Escreva um programa C# que use a classe Pessoa criada na pergunta anterior para criar uma lista de pessoas e, em seguida, filtre essa lista para conter apenas pessoas com idade superior a 30 anos. Em seguida, imprima os nomes das pessoas com idade superior a 30 anos.</p>
+
+</div>
